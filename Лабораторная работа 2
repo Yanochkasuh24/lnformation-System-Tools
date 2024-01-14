@@ -1,0 +1,202 @@
+D:\Python\Scripts>python hello.py
+Hello word
+
+D:\Python\Scripts>python
+Python 3.12.1 (tags/v3.12.1:2305ca5, Dec  7 2023, 22:03:25) [MSC v.1937 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> print('Hello world')
+Hello world
+>>> 2+2
+4
+>>> 37 / 10
+3.7
+>>> 37 // 10
+3
+>>> 37 % 10
+7
+>>> quit()
+
+-------
+#def print_hi(name):
+    # Use a breakpoint in the code line below to debug your script.
+    print(f'Hello, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+
+
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
+    print_hi('world')
+--------
+# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print(' Задание 3 ')
+a=3 # Целочисленный тип
+print(type(a))
+a=3.5 # Вещественный
+print(type(a))
+a= 'qwerty' # Строчный
+print(type(a))
+a=True # Логический
+print(type(a))
+a='123' # Строчный
+print(type(a))
+print()
+
+print(' Задание 4 ')
+a=5.7
+print(int(a))
+a=-5.7
+print(int(a))
+print(int(float(3**39)))
+print()
+
+print(' Задание 5')
+
+a=input('Введите Ваше имя')
+print('Приветсвуем Вас,', a,'!')
+print()
+
+print(' Задание 6 ')
+a=float(input('X= '))
+b=int(input('Y= '))
+a=a*60
+print('Итого минут: ', (a+a+b+b))
+print()
+
+print(' Задание 7 ')
+a=False
+b=True
+c=False
+print(not a or b and c)
+print('--- Раставили скобки чтобы получилось "False" ---')
+print((not a or b) and c)
+print()
+
+print(' Задание 8 ')
+a = int(input('Введите год: '))
+if a > 3000 or 1900 > a:
+    print('Год не входит в выборку')
+elif a % 4 == 0 and a % 100 != 0 or a % 400 == 0:
+ print('С Днём рождения!')
+else:
+ print('Год обычный')
+print()
+
+print(' Задание 9 ')
+a = 0
+while a <= 20:
+  if a%2 == 0:
+     print(a, end=' ')
+  a += 1
+print()
+print()
+
+print(' Задание 10 ')
+x = int(input('Введите число: '))
+sum = 0
+while x:
+  sum += x
+  x = int(input('Введите число: '))
+print('Итого: ',sum)
+print()
+
+print(' Задание 11 ')
+x = int(input('Введите Х: '))
+y = int(input('Введите Y: '))
+d = 1
+while d%x!=0 or d%y!=0:
+    d+=1
+print('Нужно кусков: ', d)
+print('Пицца порезана, приятного аппетита!')
+print()
+
+print(' Задание 12 ')
+number = 0
+for number in range(0, 20 + 1):
+    if number % 2 == 0:
+     print(number, end=' ')
+print()
+print()
+
+print(' Задание 13 ')
+a, b, c, d = [int(input('Введите значение: ')) for i in range(4)]
+print('Результат:')
+print('',end='\t')
+for i in range(a, b + 1):  # перебирает числа от a до b
+    print(i, end='\t')
+print()
+for j in range(c, d + 1): # перебирает числа от c до d
+    print(j, end='\t')
+    for j in range(c,d + 1):
+        print(i * j, end='\t') # умножает каждое значение i на j
+    print()
+print()
+
+print('--- Задание 14 ---')
+n = int(input('Введите размер матрицы: '))
+print('Результат:')
+mat = [[0]*n for i in range(n)]
+st, m = 1, 0
+# присваиваю значение центральному элементу матрицы
+mat[n//2][n//2]=n*n
+for v in range(n//2):
+    #Заполнение верхней горизонтальной матрицы
+    for i in range(n-m):
+        mat[v][i+v] = st
+        st+=1
+        #i+=1
+    #Заполнение правой вертикальной матрицы
+    for i in range(v+1, n-v):
+        mat[i][-v-1] = st
+        st+=1
+        #i+=1
+    #Заполнение нижней горизонтальной матрицы
+    for i in range(v+1, n-v):
+        mat[-v-1][-i-1] =st
+        st+=1
+        #i+=1
+    #Заполнение левой вертикальной матрицы
+    for i in range(v+1, n-(v+1)):
+        mat[-i-1][v]=st
+        st+=1
+        #i+=1
+    #v+=1
+    m+=2
+#Вывод результата на экран
+for i in mat:
+    print(*i)
+print()
+
+print(' Задание 15 ')
+import time
+from tkinter import messagebox
+if __name__ == '__main__':
+    messagebox.showinfo('Useful Python', 'Вы долго сидите за компьютером, пора отдохнуть!')
+
+
+print(' Задание 15 ')
+from tkinter import *
+
+# Функция для повторного отображения окна
+def reopen_window():
+
+ window.deiconify()
+
+# Функция для завершения программы
+def quit_program():
+    window.quit()
+
+window = Tk()
+window.title('Окна и кнопки')
+window.geometry('400x250')
+
+lbl = Label(window, text='Выберите действие', font=('Arial Bold', 30))
+lbl.grid(column=0, row=0, columnspan=2)
+
+# Кнопка для повторного отображения окна
+reopen_btn = Button(window, text='Показать снова', command=lambda: window.after(3000, reopen_window))
+reopen_btn.grid(column=0, row=1)
+
+# Кнопка для завершения программы
+quit_btn = Button(window, text='Завершить', command=quit_program)
+quit_btn.grid(column=1, row=1)
+
+window.mainloop()
